@@ -1,10 +1,12 @@
-import { Component } from '@angular/core';
+
+import { Injectable } from "@angular/core";
 
 import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 
 import { Observable, throwError } from "rxjs";
 import { catchError, retry } from "rxjs/operators";
-// import { Shipper } from "../domain/Shipper";
+import { Order } from "../domain/Order";
+
 
 
 @Injectable({
@@ -12,20 +14,15 @@ import { catchError, retry } from "rxjs/operators";
 })
 
 
-@Component({
-  selector: 'app-apiservice',
-  templateUrl: './apiservice.component.html',
-  styleUrls: ['./apiservice.component.css']
-})
-export class APIServiceComponent {
+export class APIService {
 
 // TODO 1 inject the HttpClient
 constructor(private http: HttpClient) {
 }
 
  // TODO 2 implement getShippers with handleError helper method
-getShippers(): Observable<Shipper[]> {
-  return this.http.get<Shipper[]>("/api/shippers")
+getOrders(): Observable<Order[]> {
+  return this.http.get<Order[]>("http://localhost:8080/api/order")
     .pipe(
       retry(3),
       catchError(this.handleError),
