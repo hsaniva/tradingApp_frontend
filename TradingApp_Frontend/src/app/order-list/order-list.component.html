@@ -1,0 +1,117 @@
+<div style="margin: auto; width: 50%; padding-top: 100px">
+    <div style="
+        margin-bottom: 35px;
+        font-size: 25px;
+        font-weight: bold;
+        text-transform: uppercase;
+      ">
+        Order list
+    </div>
+    <div>
+        <table style="border: 1px solid black">
+            <thead>
+                <th style="
+              width: 200px;
+              padding: 10px;
+              text-align: right;
+              background-color: #d2d2d2;
+            ">
+                    ID
+                </th>
+                <th style="
+              width: 200px;
+              padding: 10px;
+              text-align: right;
+              background-color: #d2d2d2;
+            ">
+                    TickerLabel
+                </th>
+                <th style="
+              width: 200px;
+              padding: 10px;
+              text-align: right;
+              background-color: #d2d2d2;
+            ">
+                    stockPrice
+                </th>
+                <th style="
+                width: 200px;
+                padding: 10px;
+                text-align: right;
+                background-color: #d2d2d2;
+              ">
+                      stockVolume
+                  </th>
+                  <th style="
+                  width: 200px;
+                  padding: 10px;
+                  text-align: right;
+                  background-color: #d2d2d2;
+                ">
+                        BuyorSell
+                    </th>
+                    <th style="
+                    width: 200px;
+                    padding: 10px;
+                    text-align: right;
+                    background-color: #d2d2d2;
+                  ">
+                          StockStatus
+                      </th>
+                
+            </thead>
+            <tbody>
+                <tr *ngFor="let order of orders" style="border-color: black">
+                    <td style="
+                    width: 200px;
+                    text-align: right;
+                    padding: 10px;
+                    background-color: #f0f0f0;
+                  ">
+                            {{order.tradeOrderId}}
+                        </td>
+                    <td style="
+                width: 200px;
+                text-align: right;
+                padding: 10px;
+                background-color: #f0f0f0;
+              ">
+                        {{order.stockTickerLabel}}
+                    </td>
+                    <td style="
+                width: 200px;
+                text-align: right;
+                padding: 10px;
+                background-color: #f0f0f0;
+              ">
+                        {{order.stockPrice}}
+                    </td>
+                    <td style="
+                width: 200px;
+                text-align: right;
+                padding: 10px;
+                background-color: #f0f0f0;
+              ">
+                        {{order.stockVolume}}
+                    </td>
+                    <td style="
+                width: 100px;
+                text-align: center;
+                padding: 10px;
+                background-color: #b9f3af;
+              ">
+                       {{order.buyOrSell}}
+                    </td>
+                    <td style="
+                width: 100px;
+                text-align: center;
+                padding: 10px;
+                background-color: #f3afc0;
+              ">
+                       {{order.stockStatusCode}}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
