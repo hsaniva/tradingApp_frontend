@@ -10,10 +10,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { OrderListComponent } from './order-list/order-list.component';
 import { AddOrderComponent } from './add-order/add-order.component';
 
-const routes: Routes = [
-  {path: "delete", component:DeleteOrderViewComponent},
-  {path: "add", component: AddOrderComponent}
-];
 
 @NgModule({
   declarations: [
@@ -26,7 +22,7 @@ const routes: Routes = [
     BrowserModule,
     BrowserModule,
     HttpClientModule,
-    RouterModule.forRoot(routes),
+    // RouterModule.forRoot(routes),
     ReactiveFormsModule,
     AppRoutingModule
   ],
