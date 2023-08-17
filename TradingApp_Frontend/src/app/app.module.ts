@@ -5,15 +5,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { HomePageComponent } from './home-page/home-page.component';
 
 const routes: Routes = [
-  {path: "", component: HomePageComponent}
 ];
 @NgModule({
   declarations: [
-    AppComponent,
-    HomePageComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
