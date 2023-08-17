@@ -34,5 +34,42 @@ private handleError(error: HttpErrorResponse) {
   return throwError(() => new Error("Please try again later."));
 }
 
+tickers = ["META",  "APPL",  "NFLX",  "GOOG", "GOOGL", "UBER"]
+  
+getTickers(){
+  // For now Ticker list is pulled from here/ later on pull it from backend.
+  return this.tickers;
+}
+
+submitOrderCreate(stockTickerLabel: string, stockPrice: number, stockVolume: number, buyOrSell: number){
+  /*
+  THis function is called with the following parameters
+
+  this.orderForm.value.stockTickerLabel ?? '',
+  this.orderForm.value.stockPrice?? 0,
+  this.orderForm.value.stockVolume?? 0,
+  this.orderForm.value.buyOrSell?? 0,
+
+  */
+
+  let order:Order = {
+    stockTickerLabel: stockTickerLabel, 
+    stockPrice: stockPrice, 
+    stockVolume: stockVolume,
+    tradeOrderId: 0,
+    buyOrSell: "",
+    stockStatusCode: ""
+  } 
+
+  this.http.post<Order>("http://localhost:8080/api/order", order).subscribe({
+    next: data => console.log(`Added new order`),
+    error: error => console.log(error.statusText)
+  })
+
+}
+
+submitOrderModify(){
+
+}
 
 }

@@ -1,0 +1,28 @@
+<!-- <p>add-order works!</p> -->
+<h2>Add-Update</h2>
+<!-- <ul>
+    <li *ngFor="let user of users">{{user}}</li>
+</ul> -->
+<form [formGroup]="orderForm"  (submit)="handleSubmit()">
+<label>Ticker Name:</label>
+<select id="stockTickerLabel" formControlName="stockTickerLabel">
+    <option *ngFor="let ticker of tickers" value="{{ticker}}">{{ticker}}</option>
+</select> <br>
+
+<label>Stock Price</label>
+<input type="number" id="stockPrice" formControlName="stockPrice"> <br>
+
+<label>Stock Volume</label>
+<input type="number" id="stockVolume" formControlName="stockVolume"> <br>
+
+
+<label>Type</label>
+<select id="buyOrSell" formControlName="buyOrSell">
+    <option *ngFor="let tradeType of tradeTypes" value="{{tradeType.value}}">{{tradeType.key}}</option>
+</select>
+
+
+
+<button type="submit">submit</button>
+
+</form>

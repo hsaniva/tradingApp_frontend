@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 // TODO 1 add some imports
 import { RouterModule, Routes } from '@angular/router';
 import { OrderListComponent } from './order-list/order-list.component';
+import { AddOrderComponent } from './add-order/add-order.component';
 
 // TODO 2 create routes array
 const routes: Routes = [
