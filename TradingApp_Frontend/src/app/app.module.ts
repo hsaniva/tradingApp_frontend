@@ -5,21 +5,23 @@ import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { APIServiceComponent } from './apiservice/apiservice.component';
+import { AppRoutingModule } from './app-routing.module';
+import { OrderListComponent } from './order-list/order-list.component';
 
 const routes: Routes = [
 ];
 @NgModule({
   declarations: [
     AppComponent,
-    APIServiceComponent
+    OrderListComponent
   ],
   imports: [
     BrowserModule,
     BrowserModule,
     HttpClientModule,
     RouterModule.forRoot(routes),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
