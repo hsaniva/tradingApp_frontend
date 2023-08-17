@@ -15,6 +15,7 @@ import { Order } from "../domain/Order";
 
 
 export class APIService {
+  remoteURL:string = "http://localhost:8080"
 
 // TODO 1 inject the HttpClient
 constructor(private http: HttpClient) {
@@ -61,15 +62,44 @@ submitOrderCreate(stockTickerLabel: string, stockPrice: number, stockVolume: num
     stockStatusCode: ""
   } 
 
-  this.http.post<Order>("http://localhost:8080/api/order", order).subscribe({
+  this.http.post<Order>(`${this.remoteURL}/api/order`, order).subscribe({
     next: data => console.log(`Added new order`),
     error: error => console.log(error.statusText)
   })
 
 }
 
-submitOrderModify(){
+// orderDetailsByID(id: number): Order | null{
+//   let order: Order | null = null
+//   this.http.get<Order>(`${this.remoteURL}/api/order/${id}`).subscribe(
+//     {
+//       next: data => {
+//         console.log(data)
+//         order = data;
+//       },
+//       error: error => console.log(error),
+//     }
+//   )
+  
+//   return order
+// }
 
+orderDetailsByID(id: number){
+  return this.http.get<Order>(`${this.remoteURL}/api/order/${id}`)
+}
+
+
+submitOrderModify(id: number, stockTickerLabel: string, stockPrice: number, stockVolume: number, buyOrSell: number){
+  let order:Order = {
+    tradeOrderId: id,
+    stockTickerLabel: stockTickerLabel, 
+    stockPrice: stockPrice, 
+    stockVolume: stockVolume,
+    buyOrSell: "",
+    stockStatusCode: ""
+  }
+
+  return 
 }
 
 }
