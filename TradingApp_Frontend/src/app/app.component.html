@@ -4,16 +4,17 @@
   <head>
     <meta charset="UTF-8">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Trading App</title>
   </head>
-  <body>
-    <header class="py-3">
+  <body style = "background-color: #e7e7e7;">
+    <header class="py-3 text-bg-dark">
       <div class="container d-flex flex-wrap justify-content-center">
         <a href="/" class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto link-body-emphasis text-decoration-none">
           <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
-          <span class="fs-4">Maverick Trading App</span>
+          <span class="fs-4  text-white">Maverick Trading App</span>
         </a>
       </div>
     </header>
@@ -26,7 +27,7 @@
           <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
             <li><a href="#" class="nav-link px-2 text-secondary">Orders</a></li>
             <li><a href="#" class="nav-link px-2 text-white">Update Order</a></li>
-            <li><a href="#" class="nav-link px-2 text-white">Delete Order</a></li>
+            <li><a href="/delete" class="nav-link px-2 text-white">Delete Order</a></li>
           </ul>
   
   
@@ -36,8 +37,10 @@
         </div>
       </div>
     </header>
-    <div class="container" style="height: 100%;">
-      <router-outlet></router-outlet>
+    <div class="container" style="background-color:white;height: 100%;">
+
+        <router-outlet></router-outlet>
+      
     </div>
     <footer  class="navbar fixed-bottom navbar-expand-sm navbar-dark bg-dark">
       <div class="container">
