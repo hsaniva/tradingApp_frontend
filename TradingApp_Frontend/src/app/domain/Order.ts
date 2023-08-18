@@ -6,4 +6,5 @@ export interface Order {
     stockVolume: number,
     buyOrSell: string,
     stockStatusCode: String
+
   }

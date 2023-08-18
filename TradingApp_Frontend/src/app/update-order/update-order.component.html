@@ -1,10 +1,14 @@
+<!-- <p>update-order works!</p> -->
+
+
+
 <!-- <p>add-order works!</p> -->
 <h2>Add</h2>
 <!-- <ul>
     <li *ngFor="let user of users">{{user}}</li>
 </ul> -->
-<form [formGroup]="orderForm"  (submit)="handleSubmit()">
-<label>Ticker Name:</label>
+<form [formGroup]="modifyForm" (submit)="handleSubmit()">
+    <label>Ticker Name:</label>
 <select id="stockTickerLabel" formControlName="stockTickerLabel">
     <option *ngFor="let ticker of tickers" value="{{ticker}}">{{ticker}}</option>
 </select> <br>

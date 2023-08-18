@@ -15,6 +15,7 @@ import { Order } from "../domain/Order";
 
 
 export class APIService {
+  remoteURL:string = "http://localhost:8080"
 
 // TODO 1 inject the HttpClient
 constructor(private http: HttpClient) {
@@ -41,7 +42,7 @@ getTickers(){
   return this.tickers;
 }
 
-submitOrderCreate(stockTickerLabel: string, stockPrice: number, stockVolume: number, buyOrSell: number){
+submitOrderCreate(stockTickerLabel: string, stockPrice: number, stockVolume: number, buyOrSell: string){
   /*
   THis function is called with the following parameters
 
@@ -57,21 +58,35 @@ submitOrderCreate(stockTickerLabel: string, stockPrice: number, stockVolume: num
     stockPrice: stockPrice, 
     stockVolume: stockVolume,
     tradeOrderId: 0,
-    buyOrSell: "",
-    stockStatusCode: ""
+    buyOrSell: buyOrSell,
+    stockStatusCode: "PENDING"
   } 
 
-  this.http.post<Order>("http://localhost:8080/api/order", order).subscribe({
+  this.http.post<Order>(`${this.remoteURL}/api/order`, order).subscribe({
     next: data => console.log(`Added new order`),
     error: error => console.log(error.statusText)
   })
 
 }
 
-submitOrderModify(){
+// orderDetailsByID(id: number): Order | null{
+//   let order: Order | null = null
+//   this.http.get<Order>(`${this.remoteURL}/api/order/${id}`).subscribe(
+//     {
+//       next: data => {
+//         console.log(data)
+//         order = data;
+//       },
+//       error: error => console.log(error),
+//     }
+//   )
+  
+//   return order
+// }
 
 
-}
+
+
 
 deleteOrder(tradeOrderId:number){
   let queryParams = new HttpParams();
@@ -80,6 +95,25 @@ deleteOrder(tradeOrderId:number){
     next: none => console.log(`Deleted order`),
     error: error => console.log(error.statusText)
   })
+}
+
+
+orderDetailsByID(id: number){
+  return this.http.get<Order>(`${this.remoteURL}/api/order/${id}`)
+}
+
+
+submitOrderModify(id: number, stockTickerLabel: string, stockPrice: number, stockVolume: number, buyOrSell: number){
+  let order:Order = {
+    tradeOrderId: id,
+    stockTickerLabel: stockTickerLabel, 
+    stockPrice: stockPrice, 
+    stockVolume: stockVolume,
+    buyOrSell: "BUY",
+    stockStatusCode: "PENDING"
+  }
+
+  return 
 }
 
 

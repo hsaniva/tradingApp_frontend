@@ -9,6 +9,7 @@ import { DeleteOrderViewComponent } from './delete-order-view/delete-order-view.
 import { AppRoutingModule } from './app-routing.module';
 import { OrderListComponent } from './order-list/order-list.component';
 import { AddOrderComponent } from './add-order/add-order.component';
+import { UpdateOrderComponent } from './update-order/update-order.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { AddOrderComponent } from './add-order/add-order.component';
     AddOrderComponent,
     AppComponent,
     DeleteOrderViewComponent,
-    OrderListComponent
+    OrderListComponent,
+    UpdateOrderComponent
   ],
   imports: [
     BrowserModule,
