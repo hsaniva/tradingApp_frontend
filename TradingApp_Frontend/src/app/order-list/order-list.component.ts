@@ -13,7 +13,7 @@ export class OrderListComponent {
   orders: Order[] = [];
 
   constructor(private apiService: APIService) {}
-
+  display = "none";
   ngOnInit(): void {
    
     this.loadOrders();
@@ -24,6 +24,13 @@ export class OrderListComponent {
       next: (orders: Order[]) => {this.orders = orders; console.log(orders);},
       error: (error) => console.error('Error occurred ' + error),
     });
+  }
+
+  openModal() {
+    this.display = "block";
+  }
+  onCloseHandled() {
+    this.display = "none";
   }
   
 

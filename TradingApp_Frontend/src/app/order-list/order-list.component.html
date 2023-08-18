@@ -58,6 +58,14 @@
                   ">
                           StockStatus
                       </th>
+                      <th style="
+                    width: 200px;
+                    padding: 10px;
+                    text-align: right;
+                    background-color: #d2d2d2;
+                  ">
+                          Option
+                      </th>
                 
             </thead>
             <tbody>
@@ -110,8 +118,17 @@
               ">
                        {{order.stockStatusCode}}
                     </td>
+
+
+                    <td style='white-space: nowrap'>
+                        <button *ngIf=" order.stockStatusCode === 'PENDING'" type="button" class="btn btn-warning">Update</button>
+
+                      <app-cancel-order-button *ngIf=" order.stockStatusCode === 'PENDING' "   id="{{order.stockTickerLabel}}"></app-cancel-order-button>
+                    </td>
+                    
                 </tr>
+
             </tbody>
         </table>
-    </div>
+          </div>
 </div>

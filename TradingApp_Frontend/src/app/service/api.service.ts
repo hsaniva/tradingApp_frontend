@@ -116,5 +116,9 @@ submitOrderModify(id: number, stockTickerLabel: string, stockPrice: number, stoc
   return 
 }
 
+cancelOrder():void{
+  this.http; // cancel order finish URL;
+}
+
 
 }
