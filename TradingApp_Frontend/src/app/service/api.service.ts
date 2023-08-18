@@ -42,7 +42,7 @@ getTickers(){
   return this.tickers;
 }
 
-submitOrderCreate(stockTickerLabel: string, stockPrice: number, stockVolume: number, buyOrSell: number){
+submitOrderCreate(stockTickerLabel: string, stockPrice: number, stockVolume: number, buyOrSell: string){
   /*
   THis function is called with the following parameters
 
@@ -58,8 +58,8 @@ submitOrderCreate(stockTickerLabel: string, stockPrice: number, stockVolume: num
     stockPrice: stockPrice, 
     stockVolume: stockVolume,
     tradeOrderId: 0,
-    buyOrSell: "",
-    stockStatusCode: ""
+    buyOrSell: buyOrSell,
+    stockStatusCode: "PENDING"
   } 
 
   this.http.post<Order>(`${this.remoteURL}/api/order`, order).subscribe({
@@ -95,8 +95,8 @@ submitOrderModify(id: number, stockTickerLabel: string, stockPrice: number, stoc
     stockTickerLabel: stockTickerLabel, 
     stockPrice: stockPrice, 
     stockVolume: stockVolume,
-    buyOrSell: "",
-    stockStatusCode: ""
+    buyOrSell: "BUY",
+    stockStatusCode: "PENDING"
   }
 
   return 

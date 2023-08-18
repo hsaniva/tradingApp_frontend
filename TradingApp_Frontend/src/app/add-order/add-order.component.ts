@@ -16,7 +16,7 @@ export class AddOrderComponent {
       stockTickerLabel:new FormControl(''),
       stockPrice: new FormControl(0),
       stockVolume: new FormControl(0),
-      buyOrSell: new FormControl(0),
+      buyOrSell: new FormControl("BUY"),
     }
   )
 
@@ -33,8 +33,8 @@ export class AddOrderComponent {
   tickers = this.dataService.getTickers()
 
   tradeTypes = [
-    {"key": "BUY", "value": 0},
-    {"key": "SELL", "value": 1}
+    {"key": "BUY", "value": "BUY"},
+    {"key": "SELL", "value": "SELL"}
   ]
 
 
@@ -47,7 +47,8 @@ export class AddOrderComponent {
     this.orderForm.value.stockTickerLabel ?? '',
     this.orderForm.value.stockPrice?? 0,
     this.orderForm.value.stockVolume?? 0,
-    this.orderForm.value.buyOrSell?? 0)
+    this.orderForm.value.buyOrSell?? "BUY",
+    )
 
   }
 };
