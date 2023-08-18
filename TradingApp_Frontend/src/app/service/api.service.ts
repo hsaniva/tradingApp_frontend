@@ -1,7 +1,7 @@
 
 import { Injectable } from "@angular/core";
 
-import { HttpClient, HttpErrorResponse } from "@angular/common/http";
+import { HttpClient, HttpErrorResponse ,HttpParams} from "@angular/common/http";
 
 import { Observable, throwError } from "rxjs";
 import { catchError, retry } from "rxjs/operators";
@@ -70,6 +70,17 @@ submitOrderCreate(stockTickerLabel: string, stockPrice: number, stockVolume: num
 
 submitOrderModify(){
 
+
 }
+
+deleteOrder(tradeOrderId:number){
+  let queryParams = new HttpParams();
+  queryParams = queryParams.append("tradeOrderId",tradeOrderId);
+  this.http.delete("http://localhost:8080/api/order", ).subscribe({
+    next: none => console.log(`Deleted order`),
+    error: error => console.log(error.statusText)
+  })
+}
+
 
 }
