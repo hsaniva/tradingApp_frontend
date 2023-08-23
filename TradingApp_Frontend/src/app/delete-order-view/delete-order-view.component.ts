@@ -18,7 +18,7 @@ export class DeleteOrderViewComponent {
 
   DeleteOrder(id: string): void {
     console.log(id)
-    this.apiService.deleteOrder(Number(id));
+    this.apiService.deleteOrder(id);
   }
 
 }

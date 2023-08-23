@@ -57,7 +57,7 @@ submitOrderCreate(stockTickerLabel: string, stockPrice: number, stockVolume: num
     stockTickerLabel: stockTickerLabel, 
     stockPrice: stockPrice, 
     stockVolume: stockVolume,
-    tradeOrderId: "1",
+    tradeOrderId: "",
     buyOrSell: buyOrSell,
     stockStatusCode: "PENDING",
     createdOn: new Date(2018, 0O5, 0O5, 17, 23, 42, 11)  ,
@@ -91,7 +91,7 @@ submitOrderCreate(stockTickerLabel: string, stockPrice: number, stockVolume: num
 
 
 
-deleteOrder(tradeOrderId:number){
+deleteOrder(tradeOrderId:string){
   let queryParams = new HttpParams();
   queryParams = queryParams.append("tradeOrderId",tradeOrderId);
   this.http.delete("http://localhost:8080/api/order", ).subscribe({
