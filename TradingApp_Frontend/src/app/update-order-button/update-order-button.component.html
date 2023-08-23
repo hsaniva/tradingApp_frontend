@@ -1,20 +1,33 @@
-<button type="button" class="btn btn-info btn-lg" (click)="openModal()">Update </button>
+<button class="btn btn-warning"  (click)="openModal()">Update</button>
     
 <div class="modal" tabindex="-1" role="dialog"  [ngStyle]="{'display':display}">
          <div class="modal-dialog" role="document">
                <div class="modal-content">
                      <div class="modal-header">
-                           <h4 class="modal-title">Cancel Confirmation</h4>
+                           <h4 class="modal-title">Update TradeOrder</h4>
                            <button type="button" class="close" aria-label="Close" (click)="onCloseHandled()"><span aria-hidden="true">&times;</span></button>
                          </div>
                 <div class="modal-body">
-                           <p>Are you Sure that you want to cancel?</p>
+                        <label>Ticker Name:</label>
+                    <input [(ngModel)] ="order.stockTickerLabel" />
+                    <br/>
+                    
+                    <label>Stock Price</label>
+                    <input type="number" id="stockPrice" value="{{order.stockPrice}}" readonly> <br>
+                    
+                    <label>Stock Volume</label>
+                    <input type="number" id="stockVolume" value="{{order.stockVolume}}" readonly> <br>
+                    
+                    
+                    <label>Type</label>
+                    <input type="text" value="{{order.buyOrSell}}" readonly/>
+               
+                    
                          </div>
-                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" (click)="onCancelHandled()" >Cancel Order</button>
+                  <div class="modal-footer">
+                        <button type="button" class="btn btn-default" (click)="onUpdateHandled()" >Update Order</button>
                         <button type="button" class="btn btn-default" (click)="onCloseHandled()" >Go Back</button>
-                           
-                         </div>
+                  </div>
             </div>
              </div>
  </div>
