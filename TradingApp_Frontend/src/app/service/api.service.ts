@@ -57,9 +57,12 @@ submitOrderCreate(stockTickerLabel: string, stockPrice: number, stockVolume: num
     stockTickerLabel: stockTickerLabel, 
     stockPrice: stockPrice, 
     stockVolume: stockVolume,
-    tradeOrderId: 0,
+    tradeOrderId: "1",
     buyOrSell: buyOrSell,
-    stockStatusCode: "PENDING"
+    stockStatusCode: "PENDING",
+    createdOn: new Date(2018, 0O5, 0O5, 17, 23, 42, 11)  ,
+    updatedOn: new Date(2018, 0O5, 0O5, 17, 23, 42, 11),
+    userId: "1",
   } 
 
   this.http.post<Order>(`${this.remoteURL}/api/order`, order).subscribe({
@@ -98,19 +101,22 @@ deleteOrder(tradeOrderId:number){
 }
 
 
-orderDetailsByID(id: number){
+orderDetailsByID(id: string){
   return this.http.get<Order>(`${this.remoteURL}/api/order/${id}`)
 }
 
 
-submitOrderModify(id: number, stockTickerLabel: string, stockPrice: number, stockVolume: number, buyOrSell: number){
+submitOrderModify(id: string, stockTickerLabel: string, stockPrice: number, stockVolume: number, buyOrSell: number){
   let order:Order = {
     tradeOrderId: id,
     stockTickerLabel: stockTickerLabel, 
     stockPrice: stockPrice, 
     stockVolume: stockVolume,
     buyOrSell: "BUY",
-    stockStatusCode: "PENDING"
+    stockStatusCode: "PENDING",
+    createdOn: new Date(2018, 0O5, 0O5, 17, 23, 42, 11)  ,
+    updatedOn: new Date(2018, 0O5, 0O5, 17, 23, 42, 11),
+    userId: "1",
   }
 
   return 

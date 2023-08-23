@@ -9,10 +9,11 @@ import { APIService } from '../service/api.service';
 })
 export class UpdateOrderComponent {
   constructor(private dataService: APIService){}
+
   tickers = this.dataService.getTickers();
   modifyForm = new FormGroup(
     {
-      id: new FormControl(-1),
+      id: new FormControl(''),
       stockTickerLabel:new FormControl(''),
       stockPrice: new FormControl(0),
       stockVolume: new FormControl(0),
@@ -26,7 +27,7 @@ export class UpdateOrderComponent {
   ]
 
   handleSubmit() {
-    let id = this.modifyForm.value.id ?? -1;
+    let id = this.modifyForm.value.id ?? '';
 
     let orderObservable = this.dataService.orderDetailsByID(id)
     // if (order === null){
@@ -44,7 +45,7 @@ export class UpdateOrderComponent {
         }
 
         this.dataService.submitOrderModify(
-          this.modifyForm.value.id?? 0,
+          this.modifyForm.value.id?? '',
           this.modifyForm.value.stockTickerLabel?? '',
           this.modifyForm.value.stockPrice?? 0,
           this.modifyForm.value.stockVolume?? 0,

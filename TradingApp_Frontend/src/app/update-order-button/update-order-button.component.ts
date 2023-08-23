@@ -15,19 +15,22 @@ export class UpdateOrderButtonComponent {
   id :string ="";
   
   order: Order = {
-    tradeOrderId: -1,
+    tradeOrderId: '',
     stockTickerLabel: 'Dummy',
     stockPrice: -1,
-    stockVolume: -1,
-    buyOrSell: 'Dummy',
-    stockStatusCode: 'Dummy'
+    buyOrSell: "BUY",
+    stockVolume: 1,
+    stockStatusCode: "PENDING",
+    createdOn: new Date(2018, 0O5, 0O5, 17, 23, 42, 11)  ,
+    updatedOn: new Date(2018, 0O5, 0O5, 17, 23, 42, 11),
+    userId: "1",
 
   };
 
   openModal() {
     
     
-    this.dataService.orderDetailsByID(parseInt(this.id)).subscribe(
+    this.dataService.orderDetailsByID(this.id).subscribe(
       data => { this.order = data;
         this.display = "block"; },
     );
