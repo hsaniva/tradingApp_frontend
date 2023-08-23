@@ -121,9 +121,9 @@
 
 
                     <td style='white-space: nowrap'>
-                        <button *ngIf=" order.stockStatusCode === 'PENDING'" type="button" class="btn btn-warning">Update</button>
+                        <app-update-order-button *ngIf=" order.stockStatusCode === 'PENDING'" id="{{order.tradeOrderId}}"></app-update-order-button >
 
-                      <app-cancel-order-button *ngIf=" order.stockStatusCode === 'PENDING' "   id="{{order.stockTickerLabel}}"></app-cancel-order-button>
+                      <app-cancel-order-button *ngIf=" order.stockStatusCode === 'PENDING' "   id="{{order.tradeOrderId}}"></app-cancel-order-button>
                     </td>
                     
                 </tr>

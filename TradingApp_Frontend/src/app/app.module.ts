@@ -28,6 +28,7 @@ import { MdbValidationModule } from 'mdb-angular-ui-kit/validation';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CancelOrderButtonComponent } from './cancel-order-button/cancel-order-button.component';
 import { UpdateOrderButtonComponent } from './update-order-button/update-order-button.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -46,6 +47,7 @@ import { UpdateOrderButtonComponent } from './update-order-button/update-order-b
     BrowserModule,
     HttpClientModule,
     // RouterModule.forRoot(routes),
+    FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
     MdbAccordionModule,
