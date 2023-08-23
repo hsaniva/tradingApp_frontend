@@ -10,15 +10,15 @@ import { APIService } from '../service/api.service';
 export class DeleteOrderViewComponent {
 
   
-  id:number = 1;
   constructor(private apiService: APIService) {
   
   }
 
  
 
-  DeleteOrder(): void {
-    this.apiService.deleteOrder(this.id);
+  DeleteOrder(id: string): void {
+    console.log(id)
+    this.apiService.deleteOrder(Number(id));
   }
 
 }
