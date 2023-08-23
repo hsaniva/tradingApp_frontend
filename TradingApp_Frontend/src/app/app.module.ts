@@ -15,6 +15,7 @@ import { CancelOrderButtonComponent } from './cancel-order-button/cancel-order-b
 import { UpdateOrderButtonComponent } from './update-order-button/update-order-button.component';
 import { FormsModule } from '@angular/forms';
 import { MaterialModule } from './material/material.module';
+import { UserPortfolioComponent } from './user-portfolio/user-portfolio.component';
 
 
 
@@ -27,6 +28,7 @@ import { MaterialModule } from './material/material.module';
     UpdateOrderComponent,
     CancelOrderButtonComponent,
     UpdateOrderButtonComponent,
+    UserPortfolioComponent,
   ],
   imports: [
     BrowserModule,
