@@ -17,13 +17,13 @@ export class UpdateOrderComponent {
       stockTickerLabel:new FormControl(''),
       stockPrice: new FormControl(0),
       stockVolume: new FormControl(0),
-      buyOrSell: new FormControl(0),
+      buyOrSell: new FormControl("BUY"),
     }
   )
 
   tradeTypes = [
-    {"key": "BUY", "value": 0},
-    {"key": "SELL", "value": 1}
+    {"key": "BUY", "value": "BUY"},
+    {"key": "SELL", "value": "SELL"}
   ]
 
   handleSubmit() {
@@ -49,7 +49,7 @@ export class UpdateOrderComponent {
           this.modifyForm.value.stockTickerLabel?? '',
           this.modifyForm.value.stockPrice?? 0,
           this.modifyForm.value.stockVolume?? 0,
-          this.modifyForm.value.buyOrSell?? 0
+          this.modifyForm.value.buyOrSell?? "BUY"
         )
 
         

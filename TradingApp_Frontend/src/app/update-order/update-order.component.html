@@ -1,32 +1,31 @@
-<!-- <p>update-order works!</p> -->
+<h2 class="mb-4">Update</h2>
 
-
-
-<!-- <p>add-order works!</p> -->
-<h2>Add</h2>
-<!-- <ul>
-    <li *ngFor="let user of users">{{user}}</li>
-</ul> -->
 <form [formGroup]="modifyForm" (submit)="handleSubmit()">
-    <label>Ticker Name:</label>
-<select id="stockTickerLabel" formControlName="stockTickerLabel">
-    <option *ngFor="let ticker of tickers" value="{{ticker}}">{{ticker}}</option>
-</select> <br>
 
-<label>Stock Price</label>
-<input type="number" id="stockPrice" formControlName="stockPrice"> <br>
+    <div class="form-group">
+        <label for="stockTickerLabel">Ticker Name:</label>
+        <select id="stockTickerLabel" formControlName="stockTickerLabel" class="form-control">
+            <option *ngFor="let ticker of tickers" [value]="ticker">{{ticker}}</option>
+        </select>
+    </div>
 
-<label>Stock Volume</label>
-<input type="number" id="stockVolume" formControlName="stockVolume"> <br>
+    <div class="form-group">
+        <label for="stockPrice">Stock Price</label>
+        <input type="number" id="stockPrice" formControlName="stockPrice" class="form-control">
+    </div>
 
+    <div class="form-group">
+        <label for="stockVolume">Stock Volume</label>
+        <input type="number" id="stockVolume" formControlName="stockVolume" class="form-control">
+    </div>
 
-<label>Type</label>
-<select id="buyOrSell" formControlName="buyOrSell">
-    <option *ngFor="let tradeType of tradeTypes" value="{{tradeType.value}}">{{tradeType.key}}</option>
-</select>
+    <div class="form-group">
+        <label for="buyOrSell">Type</label>
+        <select id="buyOrSell" formControlName="buyOrSell" class="form-control">
+            <option *ngFor="let tradeType of tradeTypes" [value]="tradeType.value">{{tradeType.key}}</option>
+        </select>
+    </div>
 
-
-
-<button type="submit">submit</button>
+    <button type="submit" class="btn btn-primary">Update</button>
 
 </form>

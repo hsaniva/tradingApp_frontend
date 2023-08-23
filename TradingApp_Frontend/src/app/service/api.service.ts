@@ -23,7 +23,7 @@ constructor(private http: HttpClient) {
 
  // TODO 2 implement getShippers with handleError helper method
 getOrders(): Observable<Order[]> {
-  return this.http.get<Order[]>("http://localhost:8080/api/order")
+  return this.http.get<Order[]>(`${this.remoteURL}/api/order`)
     .pipe(
       retry(3),
       catchError(this.handleError),
@@ -106,7 +106,7 @@ orderDetailsByID(id: string){
 }
 
 
-submitOrderModify(id: string, stockTickerLabel: string, stockPrice: number, stockVolume: number, buyOrSell: number){
+submitOrderModify(id: string, stockTickerLabel: string, stockPrice: number, stockVolume: number, buyOrSell: string){
   let order:Order = {
     tradeOrderId: id,
     stockTickerLabel: stockTickerLabel, 
@@ -118,13 +118,11 @@ submitOrderModify(id: string, stockTickerLabel: string, stockPrice: number, stoc
     updatedOn: new Date(2018, 0O5, 0O5, 17, 23, 42, 11),
     userId: "1",
   }
+  console.log(id)
 
-  return 
+  return this.http.put<Order>(`${this.remoteURL}/api/order`, order).subscribe({
+    next: data => console.log(`Updated order`),
+    error: error => console.log(error.statusText)
+  })
 }
-
-cancelOrder():void{
-  this.http; // cancel order finish URL;
-}
-
-
 }
