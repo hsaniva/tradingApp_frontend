@@ -1,134 +1,40 @@
-<div style="margin: auto; width: 50%; padding-top: 100px">
-    <div style="
-        margin-bottom: 35px;
-        font-size: 25px;
-        font-weight: bold;
-        text-transform: uppercase;
-      ">
-        Order list
-    </div>
-    <div>
-        <table style="border: 1px solid black">
-            <thead>
-                <th style="
-              width: 200px;
-              padding: 10px;
-              text-align: right;
-              background-color: #d2d2d2;
-            ">
-                    ID
-                </th>
-                <th style="
-              width: 200px;
-              padding: 10px;
-              text-align: right;
-              background-color: #d2d2d2;
-            ">
-                    TickerLabel
-                </th>
-                <th style="
-              width: 200px;
-              padding: 10px;
-              text-align: right;
-              background-color: #d2d2d2;
-            ">
-                    stockPrice
-                </th>
-                <th style="
-                width: 200px;
-                padding: 10px;
-                text-align: right;
-                background-color: #d2d2d2;
-              ">
-                      stockVolume
-                  </th>
-                  <th style="
-                  width: 200px;
-                  padding: 10px;
-                  text-align: right;
-                  background-color: #d2d2d2;
-                ">
-                        BuyorSell
-                    </th>
-                    <th style="
-                    width: 200px;
-                    padding: 10px;
-                    text-align: right;
-                    background-color: #d2d2d2;
-                  ">
-                          StockStatus
-                      </th>
-                      <th style="
-                    width: 200px;
-                    padding: 10px;
-                    text-align: right;
-                    background-color: #d2d2d2;
-                  ">
-                          Option
-                      </th>
-                
-            </thead>
-            <tbody>
-                <tr *ngFor="let order of orders" style="border-color: black">
-                    <td style="
-                    width: 200px;
-                    text-align: right;
-                    padding: 10px;
-                    background-color: #f0f0f0;
-                  ">
-                            {{order.tradeOrderId}}
-                        </td>
-                    <td style="
-                width: 200px;
-                text-align: right;
-                padding: 10px;
-                background-color: #f0f0f0;
-              ">
-                        {{order.stockTickerLabel}}
-                    </td>
-                    <td style="
-                width: 200px;
-                text-align: right;
-                padding: 10px;
-                background-color: #f0f0f0;
-              ">
-                        {{order.stockPrice}}
-                    </td>
-                    <td style="
-                width: 200px;
-                text-align: right;
-                padding: 10px;
-                background-color: #f0f0f0;
-              ">
-                        {{order.stockVolume}}
-                    </td>
-                    <td style="
-                width: 100px;
-                text-align: center;
-                padding: 10px;
-                background-color: #b9f3af;
-              ">
-                       {{order.buyOrSell}}
-                    </td>
-                    <td style="
-                width: 100px;
-                text-align: center;
-                padding: 10px;
-                background-color: #f3afc0;
-              ">
-                       {{order.stockStatusCode}}
-                    </td>
+<mat-button-toggle-group #groupInstance="matButtonToggleGroup" multiple>
+<mat-accordion multi="true" hideToggle>
+  <div *ngFor="let order of orders" style="justify-content: space-between;">
+  <!-- <mat-button-toggle value="{{order.tradeOrderId}}"></mat-button-toggle> -->
+  <mat-expansion-panel >
+    <mat-expansion-panel-header>
+      <mat-panel-title style="font-size: 80"> {{order.stockTickerLabel}} </mat-panel-title>
+      <mat-panel-description>
+        <div class="flex-container">
+          <!-- <div>{{order.tradeOrderId}}</div> -->
+          <div>{{order.stockPrice | currency: 'USD'}}</div>
+          <div>{{order.stockVolume}}# </div>
+          <div>{{order.stockStatusCode}}</div>
+        </div>
+      </mat-panel-description>
+      
+    </mat-expansion-panel-header>
+    <div>Order Type: {{order.buyOrSell}}</div>
+    <div>Total Value: {{order.stockPrice * order.stockVolume  | currency: 'USD'}}</div>
+    <mat-action-row> 
+      <!-- <div>
+        Update/Manage
+      </div> -->
+        <input type="number" #ord_quantity placeholder="Quantity"> <br>
+        <input type="number" #ord_amount placeholder="Amount"> <br>
+        <button mat-fab color="warn" aria-label="edit icon">
+          <mat-icon (click)="handleUpdate(order, ord_quantity.value, ord_amount.value)">edit</mat-icon>
+        </button>
+        <button mat-fab color="warn" aria-label="delete icon">
+          <mat-icon>delete</mat-icon>
+        </button>
+        <!-- <app-update-order-button *ngIf=" order.stockStatusCode === 'PENDING'" id="{{order.tradeOrderId}}"></app-update-order-button > -->
 
-
-                    <td style='white-space: nowrap'>
-                        <app-update-order-button *ngIf=" order.stockStatusCode === 'PENDING'" id="{{order.tradeOrderId}}"></app-update-order-button >
-
-                      <app-cancel-order-button *ngIf=" order.stockStatusCode === 'PENDING' "   id="{{order.tradeOrderId}}"></app-cancel-order-button>
-                    </td>
-                    
-                </tr>
-
-            </tbody>
-        </table>
-          </div>
+      <!-- <app-cancel-order-button *ngIf=" order.stockStatusCode === 'PENDING' "   id="{{order.tradeOrderId}}"></app-cancel-order-button> -->
+    </mat-action-row>
+  </mat-expansion-panel>
 </div>
+</mat-accordion>
+</mat-button-toggle-group>
+{{groupInstance.value}}

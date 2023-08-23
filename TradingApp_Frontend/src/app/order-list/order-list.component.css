@@ -1,0 +1,30 @@
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+  /* background-color: DodgerBlue; */
+}
+
+.flex-container > div {
+  /* background-color: #f1f1f1; */
+  flex: 1 0 auto;
+  width: 200px;
+  /* margin: 10px;
+  padding: 20px; */
+}
+
+.example-container mat-form-field + mat-form-field {
+  margin-left: 8px;
+}
+
+.example-right-align {
+  text-align: right;
+}
+
+input.example-right-align::-webkit-outer-spin-button,
+input.example-right-align::-webkit-inner-spin-button {
+  display: none;
+}
+
+/* input.example-right-align {
+  -moz-appearance: textfield;
+} */
