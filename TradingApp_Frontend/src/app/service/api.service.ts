@@ -52,7 +52,7 @@ getTickers(){
   )
 }
 
-submitOrderCreate(stockTickerLabel: string, stockPrice: number, stockVolume: number, buyOrSell: string, stockName: string){
+submitOrderCreate(stockTickerLabel: string, stockPrice: number, stockVolume: number, buyOrSell: string, stockName: string, myMap: Map<String, String>, userId: string){
   /*
   THis function is called with the following parameters
 
@@ -70,10 +70,10 @@ submitOrderCreate(stockTickerLabel: string, stockPrice: number, stockVolume: num
     tradeOrderId: "",
     buyOrSell: buyOrSell,
     stockStatusCode: "PENDING",
-    createdOn: new Date(2018, 0O5, 0O5, 17, 23, 42, 11)  ,
+    createdOn: new Date(2018, 0O5, 0O5, 17, 23, 42, 11),
     updatedOn: new Date(2018, 0O5, 0O5, 17, 23, 42, 11),
-    userId: "1",
-    stockName: stockName
+    userId: "df088d94-8fd5-44aa-94de-c2c3d937a38b",
+    stockName: myMap.get(stockTickerLabel)
   } 
 
   this.http.post<Order>(`${this.remoteURL}/api/order`, order).subscribe({
@@ -117,7 +117,7 @@ orderDetailsByID(id: string){
 }
 
 
-submitOrderModify(id: string, stockTickerLabel: string, stockPrice: number, stockVolume: number, buyOrSell: string){
+submitOrderModify(id: string, stockTickerLabel: string, stockPrice: number, stockVolume: number, buyOrSell: string, userId:string){
   let order:Order = {
     tradeOrderId: id,
     stockTickerLabel: stockTickerLabel, 
@@ -125,12 +125,13 @@ submitOrderModify(id: string, stockTickerLabel: string, stockPrice: number, stoc
     stockVolume: stockVolume,
     buyOrSell: "BUY",
     stockStatusCode: "PENDING",
-    createdOn: new Date(2018, 0O5, 0O5, 17, 23, 42, 11)  ,
+    createdOn: new Date(2018, 0O5, 0O5, 17, 23, 42, 11),
     updatedOn: new Date(2018, 0O5, 0O5, 17, 23, 42, 11),
-    userId: "1",
+    userId: "df088d94-8fd5-44aa-94de-c2c3d937a38b",
     stockName:""
   }
-  console.log(id)
+
+  console.log(order);
 
   return this.http.put<Order>(`${this.remoteURL}/api/order`, order).subscribe({
     next: data => console.log(`Updated order`),

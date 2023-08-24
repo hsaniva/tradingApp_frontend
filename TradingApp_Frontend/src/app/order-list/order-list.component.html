@@ -36,6 +36,7 @@
             <div>{{order.stockPrice | currency: 'USD'}}</div>
             <div>{{order.stockVolume}} </div>
             <div>{{order.stockStatusCode}}</div>
+            <input type="hidden" #ord_userId value="{{order.userId}}">
           </div>
         </mat-panel-description>
         
@@ -50,9 +51,10 @@
           
           
           <div class="input-group mb-3">
+            
             <input class="form-control" type="number" #ord_quantity placeholder="Quantity" style="margin-right: 5px;"> <br>
             <input  class="form-control" type="number" #ord_amount placeholder="Amount" style="margin-right: 5px;"> <br>
-            <button (click)="handleUpdate(order, ord_quantity.value, ord_amount.value)" class="rounded-lg btn btn-warning" style="margin-right: 5px;">Update</button>
+            <button (click)="handleUpdate(order, ord_quantity.value, ord_amount.value, ord_userId.value)" class="rounded-lg btn btn-warning" style="margin-right: 5px;">Update</button>
             <button class="btn btn-danger rounded-lg">Cancel Order</button>
           </div>
           <!-- <button mat-fab color="warn" aria-label="edit icon">

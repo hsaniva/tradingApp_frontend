@@ -9,5 +9,5 @@ export interface Order {
     createdOn: Date;
     updatedOn: Date;
     userId: string;
-    stockName: string;
+    stockName: any;
   }

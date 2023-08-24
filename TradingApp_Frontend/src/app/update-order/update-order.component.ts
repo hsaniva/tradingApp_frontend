@@ -29,6 +29,7 @@ export class UpdateOrderComponent {
       stockPrice: new FormControl(0),
       stockVolume: new FormControl(0),
       buyOrSell: new FormControl("BUY"),
+      userId: new FormControl("")
     }
   )
 
@@ -60,7 +61,8 @@ export class UpdateOrderComponent {
           this.modifyForm.value.stockTickerLabel?? '',
           this.modifyForm.value.stockPrice?? 0,
           this.modifyForm.value.stockVolume?? 0,
-          this.modifyForm.value.buyOrSell?? "BUY"
+          this.modifyForm.value.buyOrSell?? "BUY",
+          this.modifyForm.value.userId??""
         )
 
         

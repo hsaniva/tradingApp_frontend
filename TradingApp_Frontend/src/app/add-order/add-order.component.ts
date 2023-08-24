@@ -17,7 +17,8 @@ export class AddOrderComponent {
       stockPrice: new FormControl(0),
       stockVolume: new FormControl(0),
       buyOrSell: new FormControl("BUY"),
-      stockName: new FormControl("")
+      stockName: new FormControl(""),
+      userId: new FormControl("")
     }
   )
 
@@ -32,11 +33,14 @@ export class AddOrderComponent {
 // }
 
   tickers: String[] = []
-
+  tickerDescs = new Map<String, String>();
   ngOnInit(){
   this.dataService.getTickers().subscribe({
     next: data => {
       this.tickers = data.map((stockTicker)=>stockTicker.symbol)
+      data.forEach(stock=>{
+        this.tickerDescs.set(stock.symbol, stock.description);
+      })
     },
     error: error => console.log(error)
   })
@@ -58,7 +62,9 @@ export class AddOrderComponent {
     this.orderForm.value.stockPrice?? 0,
     this.orderForm.value.stockVolume?? 0,
     this.orderForm.value.buyOrSell?? "BUY",
-    this.orderForm.value.stockName?? "",
+    this.orderForm.value.stockName??"",
+    this.tickerDescs,
+    this.orderForm.value.userId??"",
     )
 
   }

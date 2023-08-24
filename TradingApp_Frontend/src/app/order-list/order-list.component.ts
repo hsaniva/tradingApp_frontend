@@ -47,14 +47,15 @@ export class OrderListComponent {
     this.display = "none";
   }
 
-  handleUpdate(ord:Order, newQty:any, newAmt:any){
+  handleUpdate(ord:Order, newQty:any, newAmt:any, userId: string){
+    console.log("orderlist :"+ userId)
     this.apiService.submitOrderModify(
       ord.tradeOrderId,
       ord.stockTickerLabel,
       newAmt,
       newQty,
-      ord.buyOrSell
-
+      ord.buyOrSell,
+      userId
     )
   }
   
