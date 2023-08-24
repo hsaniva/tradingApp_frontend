@@ -151,4 +151,11 @@ getPopularStocks(): Observable<StockSymbolPrice[]>{
 
 // http://localhost:8080/api/market/symbol/
 
+  getUserPortfolio(): Observable<Object>{
+    return this.http.get(`${this.remoteURL}/api/user/portfolio?userId=df088d94-8fd5-44aa-94de-c2c3d937a38b`)
+    .pipe(
+      retry(3),
+      catchError(this.handleError)
+    )
+  }
 }
