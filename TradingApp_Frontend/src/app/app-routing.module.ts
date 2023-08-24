@@ -8,6 +8,7 @@ import { AddOrderComponent } from './add-order/add-order.component';
 import { DeleteOrderViewComponent } from './delete-order-view/delete-order-view.component';
 import { UserPortfolioComponent } from './user-portfolio/user-portfolio.component';
 import { UpdateOrderComponent } from './update-order/update-order.component';
+import { MarketviewComponent } from './marketview/marketview.component';
 
 
 // TODO 2 create routes array
@@ -17,6 +18,7 @@ const routes: Routes = [
  { path: 'delete', component: DeleteOrderViewComponent},
  { path: 'portfolio', component: UserPortfolioComponent},
  { path: 'update', component: UpdateOrderComponent},
+ { path: 'market', component: MarketviewComponent},
 
  { path: '', redirectTo: '/list', pathMatch: 'full' },
 ];
