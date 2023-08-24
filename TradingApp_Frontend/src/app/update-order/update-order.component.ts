@@ -10,7 +10,18 @@ import { APIService } from '../service/api.service';
 export class UpdateOrderComponent {
   constructor(private dataService: APIService){}
 
-  tickers = this.dataService.getTickers();
+  tickers: String[] = []
+  
+  ngOnInit(){
+
+  this.dataService.getTickers().subscribe({
+    next: data => {
+      this.tickers = data.map((stockTicker)=>stockTicker.symbol)
+    },
+    error: error => console.log(error)
+  });
+}
+
   modifyForm = new FormGroup(
     {
       id: new FormControl(''),
