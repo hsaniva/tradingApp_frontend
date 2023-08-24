@@ -7,7 +7,7 @@ import { Observable, throwError } from "rxjs";
 import { catchError, retry } from "rxjs/operators";
 import { Order } from "../domain/Order";
 import { StockSymbol, StockSymbolPrice } from "../domain/StockSymbolPrice";
-import { CloseScrollStrategy } from "@angular/cdk/overlay";
+import { environment } from './../../environments/environment';
 
 
 
@@ -17,15 +17,12 @@ import { CloseScrollStrategy } from "@angular/cdk/overlay";
 
 
 export class APIService {
-  remoteURL:string = "http://localhost:8080"
+  remoteURL:string = environment.remoteURLvalue
   popularStocks:StockSymbolPrice[] | undefined
 
 
 // TODO 1 inject the HttpClient
 constructor(private http: HttpClient) {
-  if (process.env["BACKEND_SERVER_URL"]) {
-    this.remoteURL = process.env["BACKEND_SERVER_URL"];
-}
 
 }
 
