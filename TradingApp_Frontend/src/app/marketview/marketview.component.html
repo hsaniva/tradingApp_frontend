@@ -1,1 +1,11 @@
-<p>marketview works!</p>
+<!-- <p>marketview works!</p> -->
+<table>
+    <tr>
+        <td>Symbol</td>
+        <td>Price</td>
+    </tr>
+    <tr *ngFor="let stockSymbolPrice of stockSymbolPriceList">
+        <td>{{stockSymbolPrice.stockSymbol.symbol}}</td>
+        <td>{{stockSymbolPrice.stockPrice.d}}</td>
+    </tr>
+</table>

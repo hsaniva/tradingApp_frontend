@@ -6,6 +6,8 @@ import { HttpClient, HttpErrorResponse ,HttpParams} from "@angular/common/http";
 import { Observable, throwError } from "rxjs";
 import { catchError, retry } from "rxjs/operators";
 import { Order } from "../domain/Order";
+import { StockSymbolPrice } from "../domain/StockSymbolPrice";
+import { CloseScrollStrategy } from "@angular/cdk/overlay";
 
 
 
@@ -16,6 +18,8 @@ import { Order } from "../domain/Order";
 
 export class APIService {
   remoteURL:string = "http://localhost:8080"
+  popularStocks:StockSymbolPrice[] | undefined
+
 
 // TODO 1 inject the HttpClient
 constructor(private http: HttpClient) {
@@ -126,5 +130,15 @@ submitOrderModify(id: string, stockTickerLabel: string, stockPrice: number, stoc
     next: data => console.log(`Updated order`),
     error: error => console.log(error.statusText)
   })
+
+
+}
+
+getPopularStocks(): Observable<StockSymbolPrice[]>{
+  return this.http.get<StockSymbolPrice[]>(`${this.remoteURL}/api/market/popular`)
+  .pipe(
+    retry(3),
+    catchError(this.handleError),
+  );
 }
 }
