@@ -23,6 +23,10 @@ export class APIService {
 
 // TODO 1 inject the HttpClient
 constructor(private http: HttpClient) {
+  if (process.env["BACKEND_SERVER_URL"]) {
+    this.remoteURL = process.env["BACKEND_SERVER_URL"];
+}
+
 }
 
  // TODO 2 implement getShippers with handleError helper method

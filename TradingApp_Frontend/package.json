@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "osstart": "npm install -g serve && serve -s dist/trading-app-frontend",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
