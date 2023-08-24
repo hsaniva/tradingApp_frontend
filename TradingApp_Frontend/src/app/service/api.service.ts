@@ -6,7 +6,7 @@ import { HttpClient, HttpErrorResponse ,HttpParams} from "@angular/common/http";
 import { Observable, throwError } from "rxjs";
 import { catchError, retry } from "rxjs/operators";
 import { Order } from "../domain/Order";
-import { StockSymbolPrice } from "../domain/StockSymbolPrice";
+import { StockSymbol, StockSymbolPrice } from "../domain/StockSymbolPrice";
 import { CloseScrollStrategy } from "@angular/cdk/overlay";
 
 
@@ -39,11 +39,17 @@ private handleError(error: HttpErrorResponse) {
   return throwError(() => new Error("Please try again later."));
 }
 
+// http://localhost:8080/api/market/symbol/
+
 tickers = ["META",  "APPL",  "NFLX",  "GOOG", "GOOGL", "UBER"]
   
 getTickers(){
   // For now Ticker list is pulled from here/ later on pull it from backend.
-  return this.tickers;
+  return this.http.get<StockSymbol[]>(`${this.remoteURL}/api/market/symbol/`)
+  .pipe(
+    retry(3),
+    catchError(this.handleError)
+  )
 }
 
 submitOrderCreate(stockTickerLabel: string, stockPrice: number, stockVolume: number, buyOrSell: string, stockName: string){
@@ -141,4 +147,7 @@ getPopularStocks(): Observable<StockSymbolPrice[]>{
     catchError(this.handleError),
   );
 }
+
+// http://localhost:8080/api/market/symbol/
+
 }

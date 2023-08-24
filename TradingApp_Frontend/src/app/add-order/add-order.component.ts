@@ -31,7 +31,16 @@ export class AddOrderComponent {
 //   "Uber Technologies, Inc.":"UBER"
 // }
 
-  tickers = this.dataService.getTickers()
+  tickers: String[] = []
+
+  ngOnInit(){
+  this.dataService.getTickers().subscribe({
+    next: data => {
+      this.tickers = data.map((stockTicker)=>stockTicker.symbol)
+    },
+    error: error => console.log(error)
+  })
+  }
 
   tradeTypes = [
     {"key": "BUY", "value": "BUY"},
