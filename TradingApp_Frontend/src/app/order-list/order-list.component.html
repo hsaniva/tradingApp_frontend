@@ -8,6 +8,8 @@
       <mat-panel-description>
         <div class="flex-container">
           <!-- <div>{{order.tradeOrderId}}</div> -->
+          <div>{{order.stockName}}</div>
+          <div>{{order.stockPrice | currency: 'USD'}}</div>
           <div>{{order.stockPrice | currency: 'USD'}}</div>
           <div>{{order.stockVolume}}# </div>
           <div>{{order.stockStatusCode}}</div>

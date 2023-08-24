@@ -24,7 +24,7 @@ export class UpdateOrderButtonComponent {
     createdOn: new Date(2018, 0O5, 0O5, 17, 23, 42, 11)  ,
     updatedOn: new Date(2018, 0O5, 0O5, 17, 23, 42, 11),
     userId: "1",
-
+    stockName:""
   };
 
   openModal() {

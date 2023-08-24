@@ -42,7 +42,7 @@ getTickers(){
   return this.tickers;
 }
 
-submitOrderCreate(stockTickerLabel: string, stockPrice: number, stockVolume: number, buyOrSell: string){
+submitOrderCreate(stockTickerLabel: string, stockPrice: number, stockVolume: number, buyOrSell: string, stockName: string){
   /*
   THis function is called with the following parameters
 
@@ -63,6 +63,7 @@ submitOrderCreate(stockTickerLabel: string, stockPrice: number, stockVolume: num
     createdOn: new Date(2018, 0O5, 0O5, 17, 23, 42, 11)  ,
     updatedOn: new Date(2018, 0O5, 0O5, 17, 23, 42, 11),
     userId: "1",
+    stockName: stockName
   } 
 
   this.http.post<Order>(`${this.remoteURL}/api/order`, order).subscribe({
@@ -117,6 +118,7 @@ submitOrderModify(id: string, stockTickerLabel: string, stockPrice: number, stoc
     createdOn: new Date(2018, 0O5, 0O5, 17, 23, 42, 11)  ,
     updatedOn: new Date(2018, 0O5, 0O5, 17, 23, 42, 11),
     userId: "1",
+    stockName:""
   }
   console.log(id)
 

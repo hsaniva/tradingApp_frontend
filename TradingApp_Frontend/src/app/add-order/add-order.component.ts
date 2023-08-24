@@ -17,6 +17,7 @@ export class AddOrderComponent {
       stockPrice: new FormControl(0),
       stockVolume: new FormControl(0),
       buyOrSell: new FormControl("BUY"),
+      stockName: new FormControl("")
     }
   )
 
@@ -48,6 +49,7 @@ export class AddOrderComponent {
     this.orderForm.value.stockPrice?? 0,
     this.orderForm.value.stockVolume?? 0,
     this.orderForm.value.buyOrSell?? "BUY",
+    this.orderForm.value.stockName?? "",
     )
 
   }
