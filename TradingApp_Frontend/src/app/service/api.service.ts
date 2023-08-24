@@ -99,7 +99,7 @@ submitOrderCreate(stockTickerLabel: string, stockPrice: number, stockVolume: num
 deleteOrder(tradeOrderId:string){
   let queryParams = new HttpParams();
   queryParams = queryParams.append("tradeOrderId",tradeOrderId);
-  this.http.delete("http://localhost:8080/api/order", ).subscribe({
+  this.http.delete(`${this.remoteURL}/api/order`, ).subscribe({
     next: none => console.log(`Deleted order`),
     error: error => console.log(error.statusText)
   })
