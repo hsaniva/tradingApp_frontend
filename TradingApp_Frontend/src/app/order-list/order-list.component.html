@@ -34,7 +34,7 @@
             <div style="font-weight:bold">{{order.stockName}}</div>
             <div>{{order.stockTickerLabel}}</div>
             <div>{{order.stockPrice | currency: 'USD'}}</div>
-            <div>{{order.stockVolume}}# </div>
+            <div>{{order.stockVolume}} </div>
             <div>{{order.stockStatusCode}}</div>
           </div>
         </mat-panel-description>
@@ -47,14 +47,20 @@
         <!-- <div>
           Update/Manage
         </div> -->
-          <input type="number" #ord_quantity placeholder="Quantity"> <br>
-          <input type="number" #ord_amount placeholder="Amount"> <br>
-          <button mat-fab color="warn" aria-label="edit icon">
+          
+          
+          <div class="input-group mb-3">
+            <input class="form-control" type="number" #ord_quantity placeholder="Quantity" style="margin-right: 5px;"> <br>
+            <input  class="form-control" type="number" #ord_amount placeholder="Amount" style="margin-right: 5px;"> <br>
+            <button (click)="handleUpdate(order, ord_quantity.value, ord_amount.value)" class="rounded-lg btn btn-warning" style="margin-right: 5px;">Update</button>
+            <button class="btn btn-danger rounded-lg">Cancel Order</button>
+          </div>
+          <!-- <button mat-fab color="warn" aria-label="edit icon">
             <mat-icon (click)="handleUpdate(order, ord_quantity.value, ord_amount.value)">edit</mat-icon>
-          </button>
-          <button mat-fab color="warn" aria-label="delete icon">
+          </button> -->
+          <!-- <button mat-fab color="warn" aria-label="delete icon">
             <mat-icon>delete</mat-icon>
-          </button>
+          </button> -->
           <!-- <app-update-order-button *ngIf=" order.stockStatusCode === 'PENDING'" id="{{order.tradeOrderId}}"></app-update-order-button > -->
   
         <!-- <app-cancel-order-button *ngIf=" order.stockStatusCode === 'PENDING' "   id="{{order.tradeOrderId}}"></app-cancel-order-button> -->
