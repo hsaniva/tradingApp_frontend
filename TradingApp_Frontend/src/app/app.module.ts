@@ -24,7 +24,6 @@ import { UserPortfolioComponent } from './user-portfolio/user-portfolio.componen
     AddOrderComponent,
     AppComponent,
     DeleteOrderViewComponent,
-    OrderListComponent,
     UpdateOrderComponent,
     CancelOrderButtonComponent,
     UpdateOrderButtonComponent,
@@ -39,7 +38,8 @@ import { UserPortfolioComponent } from './user-portfolio/user-portfolio.componen
     ReactiveFormsModule,
     AppRoutingModule,
     MaterialModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
