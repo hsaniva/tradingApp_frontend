@@ -35,5 +35,9 @@ export class MarketviewComponent{
     })
   }
 
+  makeOrder(){
+    
+  }
+
 
 }

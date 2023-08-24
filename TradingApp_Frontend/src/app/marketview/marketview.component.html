@@ -1,11 +1,51 @@
 <!-- <p>marketview works!</p> -->
-<table>
-    <tr>
-        <td>Symbol</td>
-        <td>Price</td>
-    </tr>
-    <tr *ngFor="let stockSymbolPrice of stockSymbolPriceList">
-        <td>{{stockSymbolPrice.stockSymbol.symbol}}</td>
-        <td>{{stockSymbolPrice.stockPrice.d}}</td>
-    </tr>
-</table>
+
+<hr>
+<div class = "display-6">Markets</div>
+<hr>
+<mat-button-toggle-group #groupInstance="matButtonToggleGroup" multiple>
+
+
+  <mat-expansion-panel hideToggle>
+    <mat-expansion-panel-header>
+      <mat-panel-title style="display: block;"> Stock Label </mat-panel-title>
+      <mat-panel-description>
+        <div class="flex-container">
+          <div style="font-weight:bold">Price</div>
+        </div>
+      </mat-panel-description>
+      
+    </mat-expansion-panel-header>
+  </mat-expansion-panel>
+
+
+  <mat-accordion multi="true" hideToggle>
+    <div *ngFor="let stockSymbolPrice of stockSymbolPriceList" style="justify-content: space-between;">
+    <!-- <mat-button-toggle value="{{order.tradeOrderId}}"></mat-button-toggle> -->
+    <mat-expansion-panel >
+      <mat-expansion-panel-header>
+        <mat-panel-title style="display: block;"> {{stockSymbolPrice.stockSymbol.symbol}} </mat-panel-title>
+        <mat-panel-description>
+          <div class="flex-container">
+            <div>{{stockSymbolPrice.stockPrice.d | currency: 'USD'}}</div>
+          </div>
+        </mat-panel-description>
+        
+      </mat-expansion-panel-header>
+      <mat-action-row> 
+
+          <input type="number" #ord_quantity placeholder="Quantity"> <br>
+          <input type="number" #ord_amount placeholder="Amount"> <br>
+          <!-- TODO add purchase button -->
+          <!-- <button mat-fab color="warn" aria-label="edit icon">
+            <mat-icon (click)="handleUpdate(order, ord_quantity.value, ord_amount.value)">edit</mat-icon>
+          </button>
+          <button mat-fab color="warn" aria-label="delete icon">
+            <mat-icon>delete</mat-icon>
+          </button>   -->
+      </mat-action-row>
+    </mat-expansion-panel>
+  </div>
+  </mat-accordion>
+</mat-button-toggle-group>
+{{groupInstance.value}}
