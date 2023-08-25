@@ -43,7 +43,7 @@
       </mat-expansion-panel-header>
       <div>Order Type: {{order.buyOrSell}}</div>
       <div>Total Value: {{order.stockPrice * order.stockVolume  | currency: 'USD'}}</div>
-      <div>Modified on: {{order.createdOn}}</div>
+      <div>Modified on: {{order.createdOn | date:'short'}}</div>
       <mat-action-row> 
         <!-- <div>
           Update/Manage

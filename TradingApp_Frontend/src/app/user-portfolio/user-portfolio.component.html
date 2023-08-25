@@ -1,47 +1,42 @@
-<!-- ... previous code ... -->
+<div class="py-5 text-center">
+  
+  
+  
+</div>
+<div class="row">
+  <div class="col-md-3 mb-3">
+    <img class="d-block mx-auto mb-4" src="../../assets/maverick.PNG" alt="" width="120" height="120">
+  </div>
+  <div class="col-md-9 mb-3">
+    <h2 class = "display-6">Hi, {{portfolioData.userDTO.name}}</h2>  
+    <p class="lead">Maverick is dedicated to providing users with a dynamic and user-friendly portfolio page that redefines the way you manage your investments.</p>
+  </div>
+</div>
+<hr>
+<h2 class="display-6">Transaction History</h2>
 
-<main class="content">
-    <header class="header">
-        <div class="avatar">
-            <img src="/assets/avatar.png" alt="User Avatar">
-        </div>
-        <div class="user-info">
-            <h2>John Doe</h2>
-            <p>Investor</p>
-        </div>
-    </header>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Stock Name</th>
+      <th scope="col">Symbol</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Price</th>
+      <th scope="col">Status</th>
+      <th scope="col">Order Type</th>
+      <th scope="col">Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let tradeOrder of portfolioData.tradeOrderDTOs">
+      <td>{{tradeOrder.stockName}}</td>
+      <td>{{tradeOrder.stockTickerLabel}}</td>
+      <td>{{tradeOrder.stockVolume}}</td>
+      <td>{{tradeOrder.stockPrice}}</td>
+      <td>{{tradeOrder.stockStatusCode}}</td>
+      <td>{{tradeOrder.buyOrSell}}</td>
+      <td>{{tradeOrder.createdOn  | date:'short'}}</td>
 
-    <section class="overview">
-        <div class="card">
-            <h3>Total Portfolio Value</h3>
-            <p class="value">$12,500</p>
-        </div>
-        <div class="card">
-            <h3>Bank Balance</h3>
-            <p class="value">$5,000</p>
-        </div>
-        <div class="card">
-            <h3>Profit/Loss</h3>
-            <p class="value text-success">+$2,500</p>
-        </div>
-    </section>
-    
-    <section class="portfolio">
-        <h2>My Stock Portfolio</h2>
-        <!-- Add stock portfolio table here -->
-    </section>
-    
-    <section class="transaction-history">
-        <h2>Transaction History</h2>
-        <ul class="list-group">
-            <li class="list-group-item">
-                Bought AAPL - 50 shares at $150.00 each
-            </li>
-            <!-- Add more transaction history items here -->
-        </ul>
-    </section>
-    
- 
-</main>
-
-<!-- ... remaining scripts ... -->
+    </tr>
+  </tbody>
+</table>

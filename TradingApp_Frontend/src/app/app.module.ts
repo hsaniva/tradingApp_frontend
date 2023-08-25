@@ -28,7 +28,6 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     UpdateOrderComponent,
     CancelOrderButtonComponent,
     UpdateOrderButtonComponent,
-    UserPortfolioComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,8 +39,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     AppRoutingModule,
     MaterialModule,
     BrowserAnimationsModule,
-    MatSnackBarModule
-    
+    MatSnackBarModule,
+    UserPortfolioComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
