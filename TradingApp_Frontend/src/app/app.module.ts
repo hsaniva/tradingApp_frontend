@@ -16,6 +16,7 @@ import { UpdateOrderButtonComponent } from './update-order-button/update-order-b
 import { FormsModule } from '@angular/forms';
 import { MaterialModule } from './material/material.module';
 import { UserPortfolioComponent } from './user-portfolio/user-portfolio.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 
@@ -38,6 +39,7 @@ import { UserPortfolioComponent } from './user-portfolio/user-portfolio.componen
     AppRoutingModule,
     MaterialModule,
     BrowserAnimationsModule,
+    MatSnackBarModule,
     UserPortfolioComponent
   ],
   providers: [],
