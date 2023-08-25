@@ -11,10 +11,20 @@
   </div>
 </div>
 <hr>
-<h2 class="display-6">Summary</h2>
 <div class="row">
   <div class="col-md-3 mb-3">
-    <h6>Funds</h6>
+    <h2 class="display-6">Summary</h2>
+  </div>
+  <div class="col-md-9 mb-3">
+    <h2 class="display-6">Equity</h2>
+  </div>
+  
+  
+</div>
+
+<div class="row">
+  <div class="col-md-3 mb-3">
+    <p style="font-size: 20px;">Funds</p>
     <h1 class="display-3" style="color:green">{{(portfolioData.userDTO.bankAccount.balance > 1099)?((portfolioData.userDTO.bankAccount.balance+""| slice:0:-3) + "k"):"less"}}</h1>
     <p style="color:grey">Account balance</p>
   </div>
@@ -65,7 +75,7 @@
   </thead>
   <tbody>
     <tr *ngFor="let tradeOrder of portfolioData.holdings">
-      <td>{{tradeOrder.stockTickerLabel}}</td>
+      <td style="color:rgb(21, 120, 201)">{{tradeOrder.stockTickerLabel}}</td>
       <td>{{tradeOrder.stockVolume}}</td>
       <td>{{tradeOrder.stockPrice | currency:'USD'}}</td>
       <td [style.color]=" tradeOrder.stockPrice > tradeOrder.stockCurrentPrice ? 'red' : 'green'">{{tradeOrder.stockCurrentPrice | currency:'USD'}}</td>
@@ -92,7 +102,7 @@
   </thead>
   <tbody>
     <tr *ngFor="let tradeOrder of portfolioData.tradeOrderDTOs">
-      <td>{{tradeOrder.stockName}}</td>
+      <td style="color:rgb(21, 120, 201)">{{tradeOrder.stockName}}</td>
       <td>{{tradeOrder.stockTickerLabel}}</td>
       <td>{{tradeOrder.stockVolume}}</td>
       <td>{{tradeOrder.stockPrice | currency:'USD'}}</td>

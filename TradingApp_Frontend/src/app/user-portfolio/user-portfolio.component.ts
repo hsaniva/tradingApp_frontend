@@ -60,7 +60,6 @@ function createChart(holdingDataPts: { y: number; indexLabel: string; }[]) {
       data: [
       {
         startAngle: 45,
-       indexLabelFontSize: 20,
        indexLabelFontFamily: "Garamond",
        indexLabelFontColor: "darkgrey",
        indexLabelLineColor: "darkgrey",

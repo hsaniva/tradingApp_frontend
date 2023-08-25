@@ -31,11 +31,11 @@
         <mat-panel-description>
           <div class="flex-container">
             <!-- <div>{{order.tradeOrderId}}</div> -->
-            <div style="font-weight:bold">{{order.stockName}}</div>
+            <div style="font-weight:bold; color:rgb(21, 120, 201)">{{order.stockName}}</div>
             <div>{{order.stockTickerLabel}}</div>
             <div>{{order.stockPrice | currency: 'USD'}}</div>
             <div>{{order.stockVolume}} </div>
-            <div>{{order.stockStatusCode}}</div>
+            <div [style.color]="order.stockStatusCode == 'EXECUTED' ? 'green': (order.stockStatusCode == 'REJECTED'?'red':'yellow')">{{order.stockStatusCode}}</div>
             <input type="hidden" #ord_userId value="{{order.userId}}">
           </div>
         </mat-panel-description>
