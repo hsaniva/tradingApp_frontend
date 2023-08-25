@@ -13,12 +13,18 @@
 <hr>
 <h2 class="display-6">Summary</h2>
 <div class="row">
-  <div class="col-md-6 mb-3">
-    <h2 class="display-6">Funds</h2>
+  <div class="col-md-3 mb-3">
+    <h6>Funds</h6>
     <h1 class="display-3" style="color:green">{{(portfolioData.userDTO.bankAccount.balance > 1099)?((portfolioData.userDTO.bankAccount.balance+""| slice:0:-3) + "k"):"less"}}</h1>
     <p style="color:grey">Account balance</p>
   </div>
-  <div class="col-md-6 mb-3">
+  <div class="col-md-4 mb-3">
+    <!-- <canvasjs-chart [options]="chartOptions" [styles]="{width: '100%', height: '360px'}"></canvasjs-chart> -->
+    <div id="chartContainer" style="height: 360px; width: 100%;"></div>
+    
+  </div>
+  <div class="col-md-5 mb-3">
+    <div id="chartContainer2" style="height: 360px; width: 100%;"></div>
   </div>
 </div>
 <div class="row">

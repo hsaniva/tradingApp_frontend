@@ -18,8 +18,7 @@ import { MaterialModule } from './material/material.module';
 import { UserPortfolioComponent } from './user-portfolio/user-portfolio.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
-
-
+import { CanvasJSAngularChartsModule } from '@canvasjs/angular-charts';
 @NgModule({
   declarations: [
     AddOrderComponent,
@@ -40,7 +39,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MaterialModule,
     BrowserAnimationsModule,
     MatSnackBarModule,
-    UserPortfolioComponent
+    UserPortfolioComponent,
+    CanvasJSAngularChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
