@@ -1,7 +1,5 @@
-<div class="py-5 text-center">
-  
-  
-  
+<div class="row">
+  <h2 class = "display-6"></h2>  
 </div>
 <div class="row">
   <div class="col-md-3 mb-3">
@@ -13,6 +11,63 @@
   </div>
 </div>
 <hr>
+<h2 class="display-6">Summary</h2>
+<div class="row">
+  <div class="col-md-6 mb-3">
+    <h2 class="display-6">Funds</h2>
+    <h1 class="display-3" style="color:green">{{(portfolioData.userDTO.bankAccount.balance > 1099)?((portfolioData.userDTO.bankAccount.balance+""| slice:0:-3) + "k"):"less"}}</h1>
+    <p style="color:grey">Account balance</p>
+  </div>
+  <div class="col-md-6 mb-3">
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-4 mb-3">
+    <h6>Invested Amount</h6>
+    <div class="display-6">
+      {{portfolioData.investedAmount}}
+    </div>
+  </div>
+  <div class="col-md-4 mb-3">
+    <h6>Current Value</h6>
+    <div class="display-6" [style.color]="(portfolioData.presentAmount > portfolioData.investedAmount)?'green':'red'">
+      {{portfolioData.presentAmount}}
+    </div>
+  </div>
+  <div class="col-md-4 mb-3">
+    <h6>P&L</h6>
+    <div class="display-6" [style.color]="(portfolioData.presentAmount > portfolioData.investedAmount)?'green':'red'">
+      {{(((portfolioData.presentAmount - portfolioData.investedAmount)/portfolioData.investedAmount)*100.0 +""| slice:0:5)+" %"}}
+    </div>
+  </div>
+  
+</div>
+<hr>
+
+<h2 class="display-6">Holdings</h2>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Stock Symbol</th>
+      <th scope="col">Volume</th>
+      <th scope="col">Average buy value</th>
+      <th scope="col">Current stock value</th>
+      <th scope="col">Realised P&L</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let tradeOrder of portfolioData.holdings">
+      <td>{{tradeOrder.stockTickerLabel}}</td>
+      <td>{{tradeOrder.stockVolume}}</td>
+      <td>{{tradeOrder.stockPrice | currency:'USD'}}</td>
+      <td [style.color]=" tradeOrder.stockPrice > tradeOrder.stockCurrentPrice ? 'red' : 'green'">{{tradeOrder.stockCurrentPrice | currency:'USD'}}</td>
+      <td [style.color]="(((tradeOrder.stockCurrentPrice - tradeOrder.stockPrice)/tradeOrder.stockPrice)*100.0 < 0) ? 'red' : 'green'">{{((tradeOrder.stockCurrentPrice - tradeOrder.stockPrice)/tradeOrder.stockPrice)*100.0 +"" | slice:0:6}} %</td>
+
+    </tr>
+  </tbody>
+</table>
+<hr>
+
 <h2 class="display-6">Transaction History</h2>
 
 <table class="table table-hover">
@@ -32,8 +87,8 @@
       <td>{{tradeOrder.stockName}}</td>
       <td>{{tradeOrder.stockTickerLabel}}</td>
       <td>{{tradeOrder.stockVolume}}</td>
-      <td>{{tradeOrder.stockPrice}}</td>
-      <td>{{tradeOrder.stockStatusCode}}</td>
+      <td>{{tradeOrder.stockPrice | currency:'USD'}}</td>
+      <td [style.color]="tradeOrder.stockStatusCode == 'EXECUTED' ? 'green': (tradeOrder.stockStatusCode == 'REJECTED'?'red':'yellow')">{{tradeOrder.stockStatusCode}}</td>
       <td>{{tradeOrder.buyOrSell}}</td>
       <td>{{tradeOrder.createdOn  | date:'short'}}</td>
 
