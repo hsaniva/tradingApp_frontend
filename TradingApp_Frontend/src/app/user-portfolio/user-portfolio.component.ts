@@ -53,19 +53,13 @@ function setChartData(this: any, portfolioData: Portfolio) {
 function createChart(holdingDataPts: { y: number; indexLabel: string; }[]) {
   var chart = new CanvasJS.Chart("chartContainer",
     {
-      title:{
-        text: "U.S Smartphone OS Market Share, Q3 2012",
-        fontFamily: "Impact",
-        fontWeight: "normal"
-      },
-
       legend:{
         verticalAlign: "bottom",
         horizontalAlign: "center"
       },
       data: [
       {
-        //startAngle: 45,
+        startAngle: 45,
        indexLabelFontSize: 20,
        indexLabelFontFamily: "Garamond",
        indexLabelFontColor: "darkgrey",
@@ -84,10 +78,7 @@ function createChart(holdingDataPts: { y: number; indexLabel: string; }[]) {
 function createChartPriceWise(holdingDataPtsPriceWise: { y: number; indexLabel: string; }[]) {
   var chart = new CanvasJS.Chart("chartContainer2",
 	{
-		theme: "light2",
-		title:{
-			text: "Gaming Consoles Sold in 2012"
-		},		
+				
 		data: [
 		{       
 			type: "pie",
