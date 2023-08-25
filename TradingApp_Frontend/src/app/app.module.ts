@@ -27,7 +27,6 @@ import { UserPortfolioComponent } from './user-portfolio/user-portfolio.componen
     UpdateOrderComponent,
     CancelOrderButtonComponent,
     UpdateOrderButtonComponent,
-    UserPortfolioComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,7 +38,7 @@ import { UserPortfolioComponent } from './user-portfolio/user-portfolio.componen
     AppRoutingModule,
     MaterialModule,
     BrowserAnimationsModule,
-    
+    UserPortfolioComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
