@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { APIService } from '../service/api.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-add-order',
@@ -9,7 +10,7 @@ import { APIService } from '../service/api.service';
 })
 export class AddOrderComponent {
 
-  constructor(private dataService: APIService){}
+  constructor(private dataService: APIService, private snackbar: MatSnackBar){}
   
   orderForm = new FormGroup(
     {
@@ -66,6 +67,15 @@ export class AddOrderComponent {
     this.tickerDescs,
     this.orderForm.value.userId??"",
     )
+    
+    this.snackbar.open("Order created", "OK", {
+      duration: 5000,
+      // here specify the position
+      verticalPosition: 'top',
+      horizontalPosition: 'right'
 
+    })
+
+    
   }
 };
